@@ -28,11 +28,13 @@ public class LocProviderListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 lm = (LocationManager) getSystemService(LOCATION_SERVICE);
                 locProvsList = lm.getAllProviders();
-
+                String s = "";
                 for(String str : locProvsList){
-                    mTextView.append ("Loc. Provider:" + str + "\n");
-                    mTextView.append ("Statue:" + lm.isProviderEnabled(str) + "\n\n");
+                    s += "Loc. Provider:" + str + "\n" +
+                            "Statue:" + lm.isProviderEnabled(str) + "\n\n";
+
                 }
+                mTextView.setText(s);
             }
         });
     }
